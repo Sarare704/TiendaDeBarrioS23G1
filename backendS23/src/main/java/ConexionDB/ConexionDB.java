@@ -202,44 +202,46 @@ public class ConexionDB {
     }
     
     
-public boolean actualizar(String nombreTabla, String[] columnas, String[] valores,int id) {
-        StringBuilder query = new StringBuilder("UPDATE");
-        query.append(nombreTabla);
-        query.append(" (");
-        for (int i = 0;i < columnas.length;i++){
-            query.append(columnas[i]);
-            if (i!=(columnas.length-1))
-                query.append(", ");
-            
-        }
-        query.append(") VALUES (" );
-        for (int i = 0;i < valores.length;i++){
-            query.append(valores[i]);
-            if (i!=(valores.length-1))
-                query.append(", ");
-            
-        }
-        query.append(" )");
-       
-        try {
+public boolean actualizar(String nombreTabla, String[] valores,int id) {
+    ArrayList<String> columnas = getColumns(nombreTabla);//Usar get columns para obtener los nombres de las columnas y realizar el metodo
+    StringBuilder query = new StringBuilder("UPDATE");
+    query.append(nombreTabla);
+    query.append(" (");
+    
+    for (int i = 0;i < columnas.size();i++){
+        query.append(columnas.get(i));
+        if (i!=(columnas.size()-1))
+            query.append(", ");
+        
+    }
+    query.append(") VALUES (" );
+    for (int i = 0;i < valores.length;i++){
+        query.append(valores[i]);
+        if (i!=(valores.length-1))
+            query.append(", ");
+        
+    }
+    query.append(" )");
+   
+    try {
 
-            stmt = con.createStatement();
-            stmt.execute(query.toString());
-            return true;
-            //return rs.getInt("id"+ nombreTabla);
+        stmt = con.createStatement();
+        stmt.execute(query.toString());
+        return true;
+        //return rs.getInt("id"+ nombreTabla);
 
-        } catch (SQLException ex) {
-            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        } catch (RuntimeException ex) {
-            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        } catch (Exception ex) {
-            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
+    } catch (SQLException ex) {
+        Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
+    } catch (RuntimeException ex) {
+        Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
+    } catch (Exception ex) {
+        Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
+    }
 
-    }    
+}        
 public boolean eliminar(String nombreTabla,int id) {
         StringBuilder query = new StringBuilder("DELETE FROM ");
         query.append(nombreTabla);
