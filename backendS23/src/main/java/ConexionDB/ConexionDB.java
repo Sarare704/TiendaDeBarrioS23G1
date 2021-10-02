@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.ArrayList;
 
 
 
@@ -86,7 +87,7 @@ public class ConexionDB {
     }
 
     public ResultSet consultar(String nombreTabla) {
-        String query = "SELECT *FROM" + nombreTabla;
+        String query = "SELECT * FROM" + nombreTabla;
 
         try {
             stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
@@ -106,7 +107,7 @@ public class ConexionDB {
     }
 
     public ResultSet consultarVista(String nombreTabla) {
-        String query = "SELECT *FROM vista" + nombreTabla;
+        String query = "SELECT * FROM vista " + nombreTabla;
 
         try {
             stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -162,13 +163,15 @@ public class ConexionDB {
         }
     }
 
-    public int insertar(String nombreTabla, String[] columnas, String[] valores) {
-        StringBuilder query = new StringBuilder("INSERT INTO");
+    public int insertar(String nombreTabla, String[] valores) {
+        ArrayList <String> columnas = new ArrayList<>();
+        StringBuilder query = new StringBuilder("INSERT INTO ");
         query.append(nombreTabla);
         query.append(" (");
-        for (int i = 0;i < columnas.length;i++){
-            query.append(columnas[i]);
-            if (i!=(columnas.length-1))
+        getColumns(nombreTabla);
+        for (int i = 0;i < columnas.size();i++){
+            query.append(columnas.get(i));
+            if (i!=(columnas.size()-1))
                 query.append(", ");
             
         }
@@ -184,10 +187,10 @@ public class ConexionDB {
         try {
 
             stmt = con.createStatement();
-            rs= stmt.executeQuery(query.toString());
+            stmt.execute(query.toString());
             
-            return rs.getInt("id"+ nombreTabla);
-
+            //return rs.getInt("id"+ nombreTabla);
+            return 1;
         } catch (SQLException ex) {
             Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
