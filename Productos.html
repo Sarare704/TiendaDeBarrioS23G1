@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Mi Tienda -Provedores </title>
+        <!-- Favicon icon -->
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+        <!-- Custom Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+    </head>
+
+    <body>
+
+        <!--*******************
+            Preloader start
+        ********************-->
+        <div id="preloader">
+            <div class="loader">
+                <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+                </svg>
+            </div>
+        </div>
+        <!--*******************
+            Preloader end
+        ********************-->
+
+
+        <!--**********************************
+            Main wrapper start
+        ***********************************-->
+        <div id="main-wrapper">
+
+            <!--**********************************
+                Nav header start
+            ***********************************-->
+            <div class="nav-header">
+                <div class="brand-logo">
+                    <a href="index.html">
+                        <b class="logo-abbr"><img src="images/logo.png" alt=""> </b>
+                        <span class="logo-compact"><img src="./images/logo-compact.png" alt=""></span>
+                        <span class="brand-title">
+                            <img src="images/logo-text.png" alt="">
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <!--**********************************
+                Nav header end
+            ***********************************-->
+
+            <!--**********************************
+                Header start
+            ***********************************-->
+            <div class="header">    
+                <div class="header-content clearfix">
+
+                    <div class="nav-control">
+                        <div class="hamburger">
+                            <span class="toggle-icon"><i class="icon-menu"></i></span>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <ul class="clearfix">
+                            <li class="icons dropdown">
+                                <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                                    <span class="activity active"></span>
+                                    <img src="images/user/1.png" height="40" width="40" alt="">
+                                </div>
+                                <div class="drop-down dropdown-profile   dropdown-menu">
+                                    <div class="dropdown-content-body">
+                                        <ul>
+                                            <li>
+                                                <a href="app-profile.html"><i class="icon-user"></i> <span>Perfil</span></a>
+                                            </li>
+                                            <li><a href="index.html"><i class="icon-key"></i> <span>Cerrar Sesión</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--**********************************
+                Header end ti-comment-alt
+            ***********************************-->
+
+            <!--**********************************
+                Sidebar start
+            ***********************************-->
+            <div class="nk-sidebar">           
+                <div class="nk-nav-scroll">
+                    <ul class="metismenu" id="menu">
+                        <li class="nav-label">Menú</li>
+
+                        <li class="mega-menu mega-menu-sm">
+                            <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                                <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Menú</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                <li><a href="./Productos.html">Productos</a></li>
+                                <li><a href="./Provedores.html">Provedores</a></li>
+                                <li><a href="./Vendedores.html">Vendedores</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--**********************************
+                Sidebar end
+            ***********************************-->
+
+            <!--**********************************
+                Content body start
+            ***********************************-->
+            <div class="content-body">
+
+                <div class="row page-titles mx-0">
+                    <div class="col p-md-0">
+                        <h4 class="card-title">Productos</h4>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Menú</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Productos</a></li>
+                        </ol>
+                    </div>
+                </div>
+                
+                
+                <div class="container-fluid" ng-app="productos23" ng-controller="testcontroller as ts">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="basic-form">
+                                         <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label>existencia</label>
+                                                    <input type="text" class="form-control" placeholder="existencia" ng-model="ts.productos.existencia">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>precioCompra</label>
+                                                    <input type="text" class="form-control" placeholder="precioCompra" ng-model="ts.productos.precioCompra" >
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label>precioVenta</label>
+                                                    <input type="text" class="form-control" placeholder="precioVenta" ng-model="ts.productos.precioVenta">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Descripcion</label>
+                                                    <input type="text" class="form-control" placeholder="Descripcion" ng-model="ts.productos.descripcion" >
+                                                </div>
+                                            </div>
+                                             <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label>ivaActual</label>
+                                                    <input type="text" class="form-control" placeholder="ivaActual" ng-model="ts.productos.ivaActual">
+                                                </div>
+                                                
+                                            </div>
+                                            <button type="submit" class="btn btn-dark" ng-click="ts.guardar()">Guardar</button>
+                                            <button type="submit" class="btn btn-dark" ng-click="ts.Limpiar()">Limpiar</button>
+                                            <button type="submit" class="btn btn-dark" ng-click="ts.listar()">Listar</button>
+                                            
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- /# column -->
+                    <div class="container-fluid">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Lista de Productos</h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr >
+                                                <th>idproducto</th>
+                                                <th>existencia</th>
+                                                <th>Descripcion</th>
+                                                <th>precioVenta</th>
+                                                <th>Editar</th>
+                                                <th>Eliminar</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="producto in ts.productos">
+                                                <td> {{producto.idProducto}}</td>
+                                                <td> {{producto.existencia}}</td>
+                                                <td> {{producto.descripcion}}</td>
+                                                <td> {{producto.PrecioVenta}}</td>
+                                                <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Editar" ng-click="ts.seleccionar()" ><i class="fa fa-pencil color-muted m-r-5"></i> </a></span></td>
+                                                <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Eliminar" ng-click="ts.eliminar()"><i class="fa fa-close color-danger"></i></a></span></td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- #/ container -->
+            </div>
+
+            <!--**********************************
+                Content body end
+            ***********************************-->
+
+
+            <!--**********************************
+                Footer start
+            ***********************************-->
+            <div class="footer">
+                <div class="copyright">
+                    <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+                </div>
+            </div>
+            <!--**********************************
+                Footer end
+            
+            <!-- /# column -->  ***********************************-->
+        </div>
+
+        <!--**********************************
+            Main wrapper end
+        ***********************************-->
+
+        <!--**********************************
+            Scripts
+        ***********************************-->
+        <script src="plugins/common/common.min.js"></script>
+        <script src="js/custom.min.js"></script>
+        <script src="js/settings.js"></script>
+        <script src="js/gleek.js"></script>
+        <script src="js/styleSwitcher.js"></script>
+
+    </body>
+    <script>
+                                                    var app = angular.module('productos23', []);
+                                                    app.controller('testcontroller', ['$http', initController]);
+                                                    function initController($http) {
+                                                        var controlador = this;
+                                                        controlador.listar = function () {
+                                                            var parametros = {opcion: "listar"};
+                                                            $http({
+                                                                method: 'POST',
+                                                                url: 'http://localhost:8080/backendS23/controller/productosController.jsp',
+                                                                params: parametros
+                                                            }).then(function (res) {
+                                                                controlador.productos = res.data;
+                                                            });
+                                                        };
+                                                        controlador.guardar = function () {
+                                                            var parametros = {opcion: "insertar" , data:JSON.stringify(controlador.productos)};
+                                                            $http({
+                                                                method: 'POST',
+                                                                url: 'http://localhost:8080/backendS23/controller/productosController.jsp',
+                                                                params: parametros
+                                                            }).then(function (res) {
+                                                                alert("hola");
+                                                                controlador.respuesta = res.data;
+                                                                controlador.listar();
+                                                            });
+                                                        };
+                                                        controlador.Limpiar = function () {
+                                                            controlador.existencia="";
+                                                            controlador.precioCompra="";
+                                                            controlador.precioVenta ="";
+                                                            controlador.productos="";
+                                                            controlador.descripcion ="";
+                                                            controlador.descripcion ="";
+                                                            controlador.ivaActual="";
+                                                        };
+                                                    }
+    </script>
+
+</html>
